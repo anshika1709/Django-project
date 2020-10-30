@@ -5,6 +5,7 @@ from blog.forms import PostForm,CommentForm
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth import login
 from django.views.generic import (CreateView,TemplateView,ListView,DetailView,UpdateView,DeleteView)
 # Create your views here.
 
@@ -53,7 +54,7 @@ class DraftListView(ListView):
 @login_required
 def post_publish(request,pk):
     post = get_object_or_404(Post,pk=pk)
-    post.publish
+    post.publish()
     return redirect('post_detail',pk=pk)
 
 

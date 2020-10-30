@@ -11,8 +11,8 @@
 </div>
 
 <form action="{% url 'login' %}" method="POST">
-    {% csrf_tpken %}
-        {% form.as_p %}
+    {% csrf_token %}
+        {{ form.as_p }}
         <input type="submit" class='btn btn-primary' value='login'>
 </form>
 
